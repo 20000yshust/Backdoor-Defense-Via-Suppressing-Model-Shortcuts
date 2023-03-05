@@ -23,6 +23,10 @@ To install requirements:
 pip install -r requirements.txt
 ```
 
+## Pipeline
+
+![](C:\Users\风满长亭\Desktop\SSFT_code\pipeline.png)
+
 ## Dataset Preparation
 
 Make sure the directory `data` follows:
