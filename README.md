@@ -25,7 +25,7 @@ pip install -r requirements.txt
 
 ## Pipeline
 
-![](C:\Users\风满长亭\Desktop\SSFT_code\pipeline.png)
+![](./pipeline.png)
 
 ## Dataset Preparation
 
