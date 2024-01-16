@@ -22,7 +22,29 @@ import core as core
 from torch.utils.data import random_split
 import random
 from core.utils import test
-from RegisterHook import register_forwardhook_for_resnet
+# from RegisterHook import register_forwardhook_for_resnet
+
+
+
+
+def forward_hook(gamma):
+    # implement SGM through grad through ReLU
+    def _forward_hook(module, input, output):
+        if isinstance(module, nn.Sequential):
+            return gamma * output
+    return _forward_hook
+
+def register_forwardhook_for_resnet(model, arch, gamma,loc):
+    # if arch in ['resnet50', 'resnet101', 'resnet152']:
+    #     gamma = np.power(gamma, 0.5)
+    forward_hook_backdoor = forward_hook(gamma)
+
+    for name, module in model.named_modules():
+        # print(module)
+        # print(name)
+        if loc in name:
+            hook=module.register_forward_hook(forward_hook_backdoor)
+    return hook
 
 
 
