@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder, CIFAR10, MNIST
 import core
 import os
-from RegisterHook import train_register_forwardhook_for_resnet
+# from RegisterHook import train_register_forwardhook_for_resnet
 import argparse
 
 
